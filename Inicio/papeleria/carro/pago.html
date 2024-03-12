@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Checkout</title>
+</head>
+<body>
+
+<div class="container">
+    <!-- Carrito de compras -->
+    <div id="carrito" style="display: none;">
+        <h3>Carrito de Compras</h3>
+        <ul id="items"></ul>
+        <p id="total">Total: $0.00</p>
+    </div>
+    
+    <form id="checkoutForm" action="ticket.html" method="post">
+        <div class="row">
+            <div class="col">
+                <h3 class="title">Datos personales</h3>
+                <div class="inputBox">
+                    <input type="text" placeholder="Nombre completo" name="nombre" id="nombre">
+                    <input type="email" placeholder="Email" name="email" id="email">
+                    <input type="text" placeholder="Direccion" name="direccion" id="direccion">
+                    <input type="text" placeholder="Ciudad" name="ciudad" id="ciudad">
+                    <div class="flex">
+                        <input type="text" placeholder="Estado" name="estado" id="estado">
+                        <input type="text" placeholder="Codigo postal" name="codigo_postal" id="codigo_postal">
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <h3 class="title">Tarjeta</h3>
+                <div class="inputBox">
+                    <img src="images/card_img.png" alt="Tarjeta">
+                    <input type="text" placeholder="Banco" name="banco" id="banco">
+                    <input type="text" placeholder="Numero de tarjeta o cuenta" name="num_tarjeta" id="num_tarjeta">
+                    <input type="text" placeholder="Mes de expiracion" name="mes_expiracion" id="mes_expiracion">
+                    <div class="flex">
+                        <input type="text" placeholder="Año de expiracion" name="anio_expiracion" id="anio_expiracion">
+                        <input type="text" placeholder="CVV" name="cvv" id="cvv">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input type="hidden" id="carritoInput" name="carrito">
+        <input type="submit" value="PAGAR" class="submit-btn">
+    </form>
+</div>
+
+<script>
+    // Obtener datos del carrito de compras (supongamos que ya está definido en otra parte)
+    var carrito = [
+        { nombre: 'Producto 1', precio: 10.99 },
+        { nombre: 'Producto 2', precio: 20.49 },
+        { nombre: 'Producto 3', precio: 5.99 }
+    ];
+
+    // Llenar el formulario con los datos del carrito
+    document.getElementById('nombre').value = ''; // Puedes llenar estos campos con datos reales si los tienes
+    document.getElementById('email').value = ''; // Puedes llenar estos campos con datos reales si los tienes
+    document.getElementById('direccion').value = ''; // Puedes llenar estos campos con datos reales si los tienes
+    document.getElementById('ciudad').value = ''; // Puedes llenar estos campos con datos reales si los tienes
+    document.getElementById('estado').value = ''; // Puedes llenar estos campos con datos reales si los tienes
+    document.getElementById('codigo_postal').value = ''; // Puedes llenar estos campos con datos reales si los tienes
+    document.getElementById('banco').value = ''; // Puedes llenar estos campos con datos reales si los tienes
+    document.getElementById('num_tarjeta').value = ''; // Puedes llenar estos campos con datos reales si los tienes
+    document.getElementById('mes_expiracion').value = ''; // Puedes llenar estos campos con datos reales si los tienes
+    document.getElementById('anio_expiracion').value = ''; // Puedes llenar estos campos con datos reales si los tienes
+    document.getElementById('cvv').value = ''; // Puedes llenar estos campos con datos reales si los tienes
+
+    // Calcular el total del carrito
+    var total = carrito.reduce(function(acc, item) {
+        return acc + item.precio;
+    }, 0);
+
+    // Llenar el carrito en un campo oculto del formulario antes de enviarlo
+    document.getElementById('carritoInput').value = JSON.stringify(carrito);
+
+</script>
+
+</body>
+</html>

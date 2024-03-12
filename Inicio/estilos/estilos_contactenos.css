@@ -1,0 +1,29 @@
+/*Estilos para contactenos.html */
+
+body {
+    background-image: url('background.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding-top: 100px;
+    background-attachment: fixed; /* Fija la imagen de fondo */
+}
+.contact-overlay {
+    background-color: rgba(0, 0, 0, 0.5); /* Color de fondo con opacidad */
+    padding: 20px;
+    border-radius: 10px; /* Bordes redondeados */
+    backdrop-filter: blur(10px); /* Efecto de desenfoque */
+    display: inline-block; /* Alinear con el texto */
+}
+.contact-info {
+    margin-top: 20px;
+}
+.contact-info img {
+    width: 50px;
+    height: 50px;
+    margin: 0 10px;
+    vertical-align: middle;
+}
+
